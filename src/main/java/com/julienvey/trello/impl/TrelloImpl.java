@@ -269,6 +269,14 @@ public class TrelloImpl implements Trello {
     }
 
     @Override
+    public Attachment addAttachmentToCard(String cardId, Attachment attachment) {
+        final Attachment createdAttachment = postForObject(createUrl(ADD_ATTACHMENT_TO_CARD).asString(), attachment, Attachment.class, cardId);
+        // createdAttachment.setIdCard(cardId);
+        return createdAttachment;
+    }
+
+
+    @Override
     //FIXME Remove this method
     @Deprecated
     public Member getBasicMemberInformation(String username) {

@@ -85,6 +85,8 @@ public interface Trello {
 
     void addLabelsToCard(String idCard, String[] labels);
 
+    Attachment addAttachmentToCard(String cardId, Attachment attachment);
+
     //FIXME Remove this method
     @Deprecated
     Member getBasicMemberInformation(String username);
