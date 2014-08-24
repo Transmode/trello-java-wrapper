@@ -30,6 +30,7 @@ public class Card extends TrelloEntity {
     private String shortLink;
     private String shortUrl;
     private boolean subscribed;
+    private List<Attachment> attachments = null;
 
     /* API */
     public void addLabels(String... labels) {
@@ -111,6 +112,14 @@ public class Card extends TrelloEntity {
 
     public void setCheckItemStates(List<CardCheckItem> checkItemStates) {
         this.checkItemStates = checkItemStates;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
     }
 
     public boolean isClosed() {

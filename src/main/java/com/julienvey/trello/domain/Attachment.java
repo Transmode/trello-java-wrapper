@@ -2,6 +2,7 @@ package com.julienvey.trello.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Attachment extends TrelloEntity {
     private String name;
     private List<Preview> previews;
     private String url;
+    private byte[] file = null;
 
     public int getBytes() {
         return bytes;
@@ -88,6 +90,15 @@ public class Attachment extends TrelloEntity {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public byte[] getFile() {
+        return Arrays.copyOf(file, file.length);
+    }
+
+    public void setFile(byte[] file) {
+        this.file = Arrays.copyOf(file, file.length);
+        this.bytes = file.length;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
