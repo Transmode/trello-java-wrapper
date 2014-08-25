@@ -73,7 +73,7 @@ public class RestTemplateHttpClient implements TrelloHttpClient {
 		// Make the network request, posting the message, expecting a String in
 		// response from the server
 		final ResponseEntity<T> responseEntity = restTemplate.exchange(url,
-				HttpMethod.POST, requestEntity, objectClass);
+				HttpMethod.POST, requestEntity, objectClass, params);
 
 		// Return the response body to display to the user
 		return responseEntity.getBody();

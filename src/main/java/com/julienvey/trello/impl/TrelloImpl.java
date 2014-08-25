@@ -308,7 +308,7 @@ public class TrelloImpl implements Trello {
 	public Attachment addAttachmentToCard(String cardId, byte[] bytes) {
 		final Attachment createdAttachment = httpClient.post(createUrl(ADD_ATTACHMENT_TO_CARD).asString(),
 				Attachment.class,
-				bytes, cardId);
+				bytes, enrichParams(new String[] {cardId}));
 		// createdAttachment.setIdCard(cardId);
 		return createdAttachment;
 	}
