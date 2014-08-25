@@ -94,4 +94,10 @@ public class ApacheHttpClient extends AbstractHttpClient {
             httpRequest.releaseConnection();
         }
     }
+
+    @Override
+    public <T> T post(String url, Class<T> objectClass, byte[] bytes,
+    		String... params) {
+    	throw new UnsupportedOperationException();
+	}
 }

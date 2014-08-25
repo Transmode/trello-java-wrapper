@@ -100,4 +100,10 @@ public class AsyncTrelloHttpClient extends AbstractHttpClient {
             throw new TrelloHttpException(e);
         }
     }
+
+    @Override
+    public <T> T post(String url, Class<T> objectClass, byte[] bytes,
+    		String... params) {
+    	throw new UnsupportedOperationException();
+	}
 }

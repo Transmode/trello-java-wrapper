@@ -85,7 +85,7 @@ public interface Trello {
 
     void addLabelsToCard(String idCard, String[] labels);
 
-    Attachment addAttachmentToCard(String cardId, Attachment attachment);
+    Attachment addAttachmentToCard(String cardId, byte[] bytes);
 
     //FIXME Remove this method
     @Deprecated
