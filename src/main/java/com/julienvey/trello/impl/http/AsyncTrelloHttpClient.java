@@ -7,6 +7,7 @@ import com.ning.http.client.AsyncHttpClient;
 import com.ning.http.client.Response;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -102,8 +103,8 @@ public class AsyncTrelloHttpClient extends AbstractHttpClient {
     }
 
     @Override
-    public <T> T post(String url, Class<T> objectClass, byte[] bytes,
-    		String... params) {
+    public <T> T postMultiPart(String url, Class<T> objectClass, byte[] bytes,
+                               String... params) {
     	throw new UnsupportedOperationException();
 	}
 }

@@ -68,7 +68,7 @@
 
         <!-- Optional dependencies versions -->
         <spring.version>3.2.2.RELEASE</spring.version>
-        <httpclient.version>4.2.5</httpclient.version>
+        <httpclient.version>4.3.5</httpclient.version>
         <async-http-client.version>1.7.19</async-http-client.version>
 
         <!-- Plugins versions -->
@@ -141,6 +141,11 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

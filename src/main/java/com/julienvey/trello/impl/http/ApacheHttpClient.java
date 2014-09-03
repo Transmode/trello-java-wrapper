@@ -11,9 +11,17 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 
 public class ApacheHttpClient extends AbstractHttpClient {
@@ -96,8 +104,19 @@ public class ApacheHttpClient extends AbstractHttpClient {
     }
 
     @Override
-    public <T> T post(String url, Class<T> objectClass, byte[] bytes,
-    		String... params) {
-    	throw new UnsupportedOperationException();
-	}
+    public <T> T postMultiPart(String url, Class<T> objectClass, byte[] bytes,
+                               String... params) {
+        final HttpPost httpPost = new HttpPost(expandUrl(url, params));
+
+        // todo actual request contains the token within the form but is also
+        // works to add it to the url?
+        // .addTextBody("token", token)
+
+        final HttpEntity httpEntity = MultipartEntityBuilder.create().
+                setMode(HttpMultipartMode.BROWSER_COMPATIBLE).
+                addBinaryBody("file",  bytes, ContentType.create("image/jpeg"), "image.jpg").build();
+
+        httpPost.setEntity(httpEntity);
+        return getEntityAndReleaseConnection(objectClass, httpPost);
+    }
 }

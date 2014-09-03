@@ -6,6 +6,7 @@ import com.julienvey.trello.exception.TrelloHttpException;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,6 +17,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.InputStream;
 import java.net.URI;
 
 public class RestTemplateHttpClient implements TrelloHttpClient {
@@ -56,8 +58,8 @@ public class RestTemplateHttpClient implements TrelloHttpClient {
 	}
 
 	@Override
-	public <T> T post(String url, Class<T> objectClass, byte[] bytes,
-			String... params) {
+	public <T> T postMultiPart(String url, Class<T> objectClass, byte[] bytes,
+                               String... params) {
 		final HttpHeaders httpHeaders = new HttpHeaders();
 
 		// Sending multipart/form-data

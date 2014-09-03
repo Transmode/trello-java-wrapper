@@ -1,5 +1,6 @@
 package com.julienvey.trello;
 
+import java.io.InputStream;
 import java.util.List;
 
 import com.julienvey.trello.domain.Action;

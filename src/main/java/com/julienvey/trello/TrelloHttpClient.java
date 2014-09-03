@@ -1,5 +1,6 @@
 package com.julienvey.trello;
 
+import java.io.InputStream;
 import java.net.URI;
 
 public interface TrelloHttpClient {
@@ -11,6 +12,6 @@ public interface TrelloHttpClient {
 
     public URI postForLocation(String url, Object object, String... params);
     
-	public <T> T post(String url, Class<T> objectClass, byte[] bytes, String... params);
+	public <T> T postMultiPart(String url, Class<T> objectClass, byte[] bytes, String... params);
 
 }

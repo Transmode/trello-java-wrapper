@@ -8,6 +8,7 @@ import com.julienvey.trello.impl.http.RestTemplateHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -306,9 +307,9 @@ public class TrelloImpl implements Trello {
 
 	@Override
 	public Attachment addAttachmentToCard(String cardId, byte[] bytes) {
-		final Attachment createdAttachment = httpClient.post(createUrl(ADD_ATTACHMENT_TO_CARD).asString(),
-				Attachment.class,
-				bytes, enrichParams(new String[] {cardId}));
+		final Attachment createdAttachment = httpClient.postMultiPart(createUrl(ADD_ATTACHMENT_TO_CARD).asString(),
+                Attachment.class,
+                bytes, enrichParams(new String[]{cardId}));
 		// createdAttachment.setIdCard(cardId);
 		return createdAttachment;
 	}
