@@ -323,3 +323,41 @@ If you are missing some fonctionnalities, you can easily contribute and propose 
 | POST /1/webhooks
 | DELETE /1/webhooks/[idWebhook]
 
+
+###Setting up settings.xml for release
+
+Remove 'SNAPSHOT' in pom.xml:
+
+``` xml
+ <version>0.5-SNAPSHOT</version>
+```
+
+Add credentials in ~/.m2/settings.xml:
+
+```xml
+<settings>
+  <servers>
+      <server>
+            <id>artifactory.internal</id>
+	            <username>admin</username>
+		            <password>password</password>
+			          </server>
+				      <server>
+				            <id>artifactory.snapshots</id>
+					            <username>admin</username>
+						            <password>password</password>
+							          </server>
+								    </servers>
+								    </settings>
+```
+
+Upload to repo:
+
+mvn deploy
+
+Bump version and add SNAPSHOT again:
+
+```xml
+<version>0.n+1-SNAPSHOT</version>
+```
+
