@@ -8,13 +8,13 @@ This project is a Java Wrapper for the [Trello API](https://trello.com/docs/). I
 
 ### Maven dependency
 
-trello-java-wrapper is available on maven central. The current release is 0.3
+trello-java-wrapper is available on maven central. The current release is 0.4
 
 ```xml
 <dependency>
     <groupId>com.julienvey.trello</groupId>
     <artifactId>trello-java-wrapper</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
 </dependency>
 ```
 
