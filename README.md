@@ -337,23 +337,23 @@ Add credentials in ~/.m2/settings.xml:
 ```xml
 <settings>
   <servers>
-      <server>
-            <id>artifactory.internal</id>
-	            <username>admin</username>
-		            <password>password</password>
-			          </server>
-				      <server>
-				            <id>artifactory.snapshots</id>
-					            <username>admin</username>
-						            <password>password</password>
-							          </server>
-								    </servers>
-								    </settings>
+    <server>
+      <id>artifactory.internal</id>
+      <username>admin</username>
+      <password>password</password>
+    </server>
+    <server>
+      <id>artifactory.snapshots</id>
+      <username>admin</username>
+      <password>password</password>
+    </server>
+  </servers>
+</settings>
 ```
 
 Upload to repo:
 
-mvn deploy
+    % mvn deploy
 
 Bump version and add SNAPSHOT again:
 
